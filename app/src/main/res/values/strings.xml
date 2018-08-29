@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Softices Academy</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+
+    <string name="txt_email">Email:</string>
+    <string name="txt_password">Password:</string>
+    <string name="txt_forgot_password">Forgot Password?</string>
+    <string name="txt_sign_in">Sign In</string>
+    <string name="txt_no_account">No Account? </string>
+    <string name="txt_create_an_account">Create an Account</string>
+    <string name="txt_gender">Gender</string>
+    <string name="txt_male">Male</string>
+    <string name="txt_female">Female</string>
+    <string name="txt_sign_up">Sign Up</string>
+    <string name="txt_already_have_an_account">Already have an Account? </string>
+    <string name="txt_login_now">Login Now!</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_profile">Profile</string>
+    <string name="txt_user_activity">User Activity</string>
+    <string name="txt_google_maps">Google Maps</string>
+    <string name="txt_contacts">Contacts</string>
+    <string name="txt_broadcast_receiver">Broadcast Receiver</string>
+    <string name="txt_logout">Logout</string>
+    <string name="txt_save">Save</string>
+    <string name="txt_reset_password">Reset Password</string>
+
+    <string name="edt_enter_your_email">Enter your Email</string>
+    <string name="edt_enter_your_password">Enter your Password</string>
+    <string name="edt_first_name">First Name</string>
+    <string name="edt_last_name">Last Name</string>
+    <string name="edt_email">Email</string>
+    <string name="edt_mobile_number">Mobile Number</string>
+    <string name="edt_password">Password</string>
+    <string name="edt_enter_new_password">Enter new Password</string>
+    <string name="edt_confirm_password">Confirm Password</string>
+    <string name="title_activity_dashboard">Softices Academy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Softices Academy</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>

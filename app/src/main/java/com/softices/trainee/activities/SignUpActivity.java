@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.softices.trainee.R;
 import com.softices.trainee.database.DbHelper;
@@ -53,9 +53,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     Uri picUri;
 
 
-    private ArrayList permissionsToRequest;
-    private ArrayList permissionsRejected = new ArrayList();
-    private ArrayList permissions = new ArrayList();
+    private ArrayList<String> permissionsToRequest;
+    private ArrayList<String> permissionsRejected = new ArrayList();
+    private ArrayList<String> permissions = new ArrayList();
 
     private final static int ALL_PERMISSIONS_RESULT = 107;
     private static final int CAMERA_PIC_REQUEST = 100;
@@ -68,8 +68,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         init();
 
-        setContentView(R.layout.activity_sign_up);
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         permissions.add(CAMERA);
@@ -78,16 +77,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         //we will store this in a global list to access later.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (permissionsToRequest.size() > 0)
-                requestPermissions((String[]) permissionsToRequest.toArray(new String[permissionsToRequest.size()]), ALL_PERMISSIONS_RESULT);
+                requestPermissions(permissionsToRequest.toArray(new String[permissionsToRequest.size()]), ALL_PERMISSIONS_RESULT);
         }
-
-        circleImageView = (CircleImageView) findViewById(R.id.circle_img_profile);
-        circleImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(getPickImageChooserIntent(), 200);
-            }
-        });
     }
 
     @Override
@@ -101,13 +92,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 //                    myBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), picUri);
 //                    myBitmap = rotateImageIfRequired(myBitmap, picUri);
 //                    myBitmap = getResizedBitmap(myBitmap, 500);
-                    CircleImageView circleImageView = (CircleImageView) findViewById(R.id.circle_img_profile);
-                    circleImageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            startActivityForResult(getPickImageChooserIntent(), 200);
-                        }
-                    });
                     circleImageView.setImageBitmap(myBitmap);
                     imageView.setImageBitmap(myBitmap);
                 } catch (Exception e) {
@@ -123,7 +107,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 imageView.setImageBitmap(myBitmap);
             }
         }
-
     }
 
     public Uri getPickImageResultUri(Intent data) {
@@ -165,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         PackageManager packageManager = getPackageManager();
         // collect all camera intents
         Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(captureIntent,CAMERA_PIC_REQUEST);
+        startActivityForResult(captureIntent, CAMERA_PIC_REQUEST);
         List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo res : listCam) {
             Intent intent = new Intent(captureIntent);
@@ -178,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         // collect all gallery intents
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(galleryIntent,SELECT_IMAGE);
+        startActivityForResult(galleryIntent, SELECT_IMAGE);
         galleryIntent.setType("image/*");
         List<ResolveInfo> listGallery = packageManager.queryIntentActivities(galleryIntent, 0);
         for (ResolveInfo res : listGallery) {
@@ -222,6 +205,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         btnSignUp = (Button) findViewById(R.id.btn_signup);
         txtLoginNow = (TextView) findViewById(R.id.txt_login_now);
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        circleImageView = (CircleImageView) findViewById(R.id.circle_img_profile);
+        circleImageView.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
         txtLoginNow.setOnClickListener(this);
         dbHelper = new DbHelper(this);
@@ -279,6 +264,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.btn_signup:
                 clickedSignUp();
+                break;
+            case R.id.circle_img_profile:
+                startActivityForResult(getPickImageChooserIntent(), 200);
                 break;
             case R.id.txt_login_now:
                 Intent txtLoginNow = new Intent(SignUpActivity.this,

@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.softices.trainee.MapsActivity;
 import com.softices.trainee.R;
 
 import static com.softices.trainee.sharedpreferences.AppPreferences.clearPreferences;
@@ -24,15 +25,6 @@ public class Dashboard extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -94,7 +86,9 @@ public class Dashboard extends AppCompatActivity
             startActivity(intent);
             finish();
         } else if (id == R.id.nav_google_maps) {
-
+            Intent intent = new Intent(Dashboard.this, MapsActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_contacts) {
 
         } else if (id == R.id.nav_brodcast_receiver) {

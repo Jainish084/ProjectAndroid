@@ -19,14 +19,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
 
-        <!--<ImageView-->
-            <!--android:id="@+id/img_user"-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="100dp"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:src="@drawable/user_profile" />-->
-
         <EditText
             android:id="@+id/edt_first_name"
             android:layout_width="match_parent"

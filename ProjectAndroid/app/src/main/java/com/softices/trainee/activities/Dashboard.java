@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.softices.trainee.activities.MapsActivity;
+import com.softices.trainee.MapsActivity;
 import com.softices.trainee.R;
 
 import static com.softices.trainee.sharedpreferences.AppPreferences.clearPreferences;

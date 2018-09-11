@@ -85,22 +85,26 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bitmap bitmap;
         if (resultCode == Activity.RESULT_OK) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView);
             if (getPickImageResultUri(data) != null) {
                 picUri = getPickImageResultUri(data);
                 try {
-                    myBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), picUri);
+//                    myBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), picUri);
 //                    myBitmap = rotateImageIfRequired(myBitmap, picUri);
 //                    myBitmap = getResizedBitmap(myBitmap, 500);
                     circleImageView.setImageBitmap(myBitmap);
+                    imageView.setImageBitmap(myBitmap);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
                 bitmap = (Bitmap) data.getExtras().get("data");
                 myBitmap = bitmap;
-                if (circleImageView != null) {
-                    circleImageView.setImageBitmap(myBitmap);
+                CircleImageView croppedImageView = (CircleImageView) findViewById(R.id.circle_img_profile);
+                if (croppedImageView != null) {
+                    croppedImageView.setImageBitmap(myBitmap);
                 }
+                imageView.setImageBitmap(myBitmap);
             }
         }
     }
@@ -144,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         PackageManager packageManager = getPackageManager();
         // collect all camera intents
         Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(captureIntent, CAMERA_PIC_REQUEST);
+        startActivityForResult(captureIntent, CAMERA_PIC_REQUEST);
         List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo res : listCam) {
             Intent intent = new Intent(captureIntent);
@@ -157,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         // collect all gallery intents
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(galleryIntent, SELECT_IMAGE);
+        startActivityForResult(galleryIntent, SELECT_IMAGE);
         galleryIntent.setType("image/*");
         List<ResolveInfo> listGallery = packageManager.queryIntentActivities(galleryIntent, 0);
         for (ResolveInfo res : listGallery) {
@@ -176,7 +180,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         allIntents.remove(mainIntent);
         // Create a chooser from the main intent
-        Intent chooserIntent = Intent.createChooser(mainIntent, "Select source");
+        Intent chooserIntent = Intent.createChooser((Intent) mainIntent, "Select source");
         // Add all other intents
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, allIntents.toArray(new Parcelable[allIntents.size()]));
         return chooserIntent;

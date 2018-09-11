@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/softices_academy" />
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_logo"
+                android:text="@string/txt_email"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_email"
+                android:layout_marginTop="5sp"
+                android:hint="@string/edt_enter_your_email" />
+
+            <TextView
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edt_email"
+                android:layout_marginTop="20sp"
+                android:text="@string/txt_password"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_password"
+                android:layout_marginTop="5sp"
+                android:inputType="textPassword"
+                android:hint="@string/edt_enter_your_password" />
+
+            <TextView
+                android:id="@+id/txt_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/edt_password"
+                android:layout_below="@+id/edt_password"
+                android:layout_marginTop="20dp"
+                android:text="@string/txt_forgot_password"
+                android:textColor="@color/colorLinkText"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/btn_signin"
+                android:layout_width="302dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_forgot_password"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@color/colorButtonBackground"
+                android:shadowRadius="5"
+                android:text="@string/txt_sign_in"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_signin"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/txt_no_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_no_account"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_creat_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txt_no_account"
+                    android:text="@string/txt_create_an_account"
+                    android:textColor="@color/colorLinkText"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

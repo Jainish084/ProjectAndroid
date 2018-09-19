@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_google_map"
             android:title="@string/txt_google_maps" />
         <item
+            android:id="@+id/nav_web_services"
+            android:icon="@drawable/ic_web_services"
+            android:title="@string/txt_web_services" />
+        <item
             android:id="@+id/nav_contacts"
             android:icon="@drawable/ic_contacts"
             android:title="@string/txt_contacts" />

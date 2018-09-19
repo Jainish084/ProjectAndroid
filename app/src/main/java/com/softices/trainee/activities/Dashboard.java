@@ -89,6 +89,10 @@ public class Dashboard extends AppCompatActivity
             Intent intent = new Intent(Dashboard.this, MapsActivity.class);
             startActivity(intent);
             finish();
+        } else if (id == R.id.nav_web_services) {
+            Intent intent = new Intent(Dashboard.this, WebServicesActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_contacts) {
 
         } else if (id == R.id.nav_brodcast_receiver) {

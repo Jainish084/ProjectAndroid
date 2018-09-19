@@ -18,11 +18,16 @@
     <string name="txt_profile">Profile</string>
     <string name="txt_user_activity">User Activity</string>
     <string name="txt_google_maps">Google Maps</string>
+    <string name="txt_web_services">Web Services</string>
     <string name="txt_contacts">Contacts</string>
     <string name="txt_broadcast_receiver">Broadcast Receiver</string>
     <string name="txt_logout">Logout</string>
     <string name="txt_save">Save</string>
     <string name="txt_reset_password">Reset Password</string>
+    <string name="txt_get">Get</string>
+    <string name="txt_post">Post</string>
+    <string name="txt_put">Put</string>
+    <string name="txt_delete">Delete</string>
 
     <string name="edt_enter_your_email">Enter your Email</string>
     <string name="edt_enter_your_password">Enter your Password</string>
@@ -33,6 +38,7 @@
     <string name="edt_password">Password</string>
     <string name="edt_enter_new_password">Enter new Password</string>
     <string name="edt_confirm_password">Confirm Password</string>
+    <string name="edt_Enter_value">Enter Value</string>
     <string name="title_activity_dashboard">Softices Academy</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

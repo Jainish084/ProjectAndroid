@@ -28,9 +28,4 @@ public class UserActivity extends AppCompatActivity {
         UserAdapter userAdapter = new UserAdapter(this, dbHelper, dbHelper.getAllUser());
         recyclerView.setAdapter(userAdapter);
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }

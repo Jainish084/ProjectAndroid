@@ -7,6 +7,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <include
+            android:id="@+id/profile_toolbar"
+            layout="@layout/app_bar_dashboard"/>
+
         <ImageView
             android:id="@+id/profile_img_user"
             android:layout_width="100dp"

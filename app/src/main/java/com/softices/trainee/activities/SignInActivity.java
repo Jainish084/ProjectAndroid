@@ -89,8 +89,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         ForgotPasswordActivity.class);
                 startActivity(forgotPassword);
             case R.id.btn_signin:
-//                clickedSignIn();
-                getMethod();
+                clickedSignIn();
+//                getMethod();
                 break;
             case R.id.txt_creat_account:
                 Intent createAccount = new Intent(SignInActivity.this,

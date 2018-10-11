@@ -1,11 +1,14 @@
 package com.softices.trainee.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.softices.trainee.R;
 
@@ -20,6 +23,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setTitle("Forget Password");
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         init();
         resetPassword();
@@ -51,7 +62,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(ForgotPasswordActivity.this,Dashboard.class);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 }

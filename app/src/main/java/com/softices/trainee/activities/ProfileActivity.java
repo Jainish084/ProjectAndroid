@@ -6,12 +6,15 @@ import android.database.Cursor;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.softices.trainee.R;
 import com.softices.trainee.database.DbHelper;
@@ -31,6 +34,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setTitle("Profile");
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         init();
 
         setDefulatData();
@@ -101,16 +111,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         user.setEmail(profileEmail.getText().toString());
         user.setMobileNumber(mobileNumber.getText().toString());
         boolean isUpdate = dbHelper.updateUser(user);
-        if (isUpdate){
-            Toast.makeText(ProfileActivity.this,"Data is Updated",Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(ProfileActivity.this,"Data is not Updated",Toast.LENGTH_LONG).show();
+        if (isUpdate) {
+            Toast.makeText(ProfileActivity.this, "Data is Updated", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(ProfileActivity.this, "Data is not Updated", Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(ProfileActivity.this,Dashboard.class);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 }

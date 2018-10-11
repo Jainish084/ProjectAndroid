@@ -12,8 +12,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -48,9 +46,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 //        gps_status=(TextView) findViewById(R.id.gps_status);
 
-        Toolbar tb = findViewById(R.id.toolbar);
-        setSupportActionBar(tb);
-        tb.setSubtitle("Your Location");
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setTitle("Your Location");
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.current_location);
@@ -226,8 +223,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     checkPermissions();
                 }
             };
-
-    public void setSupportActionBar(Toolbar supportActionBar) {
-        this.supportActionBar = supportActionBar;
-    }
 }

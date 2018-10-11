@@ -53,6 +53,13 @@
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.WebServicesActivity" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activities.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
